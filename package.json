@@ -1,0 +1,46 @@
+{
+  "name": "vanillajs-dom",
+  "version": "0.1.0",
+  "description": "A collection of simple DOM utilities for those who prefer a Vanilla JS approach.",
+  "main": "dist/vanillajs-dom.js",
+  "jsnext:main": "lib/index.js",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "scripts": {
+    "build": "mkdir -p dist && rollup lib/index.js | babel -m umd --module-id vanillajsDom -o dist/vanillajs-dom.js",
+    "test": "eslint lib",
+    "prepublish": "npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronik-design/vanillajs-dom.git"
+  },
+  "keywords": [
+    "vanillajs",
+    "vanilla",
+    "dom",
+    "es6",
+    "bundle",
+    "browser",
+    "rollup"
+  ],
+  "author": {
+    "name": "Michael Shick (Ronik Design)",
+    "email": "contact@ronikdesign.com",
+    "url": "http://www.ronikdesign.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronik-design/vanillajs-dom/issues"
+  },
+  "homepage": "https://github.com/ronik-design/vanillajs-dom#readme",
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "eslint": "^1.7.3",
+    "eslint-config-defaults": "^7.0.1",
+    "eslint-plugin-filenames": "^0.1.2",
+    "rollup": "^0.20.2"
+  }
+}
