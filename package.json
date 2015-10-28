@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "mkdir -p dist && rollup lib/index.js | babel -m umd --module-id vanillajsDom -o dist/vanillajs-dom.js",
+    "build": "mkdir -p dist && rollup lib/index.js | babel -o dist/vanillajs-dom.js",
     "test": "eslint lib",
     "prepublish": "npm test && npm run build"
   },
