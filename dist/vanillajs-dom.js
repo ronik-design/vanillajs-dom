@@ -1,8 +1,5 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var outerHeight = function outerHeight(el) {
 
   var style = getComputedStyle(el);
@@ -91,7 +88,18 @@ var scrollTop = function scrollTop() {
   return window.scrollY || window.pageYOffset;
 };
 
+var ready = function ready(cb) {
+  var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+  if (raf) {
+    raf(cb);
+  } else {
+    window.addEventListener("load", cb);
+  }
+};
+
 exports.outerHeight = outerHeight;
 exports.parent = getParent;
 exports.parents = getParents;
 exports.scrollTop = scrollTop;
+exports.ready = ready;
