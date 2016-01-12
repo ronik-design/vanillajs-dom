@@ -12,6 +12,8 @@ var outerHeight = function outerHeight(el) {
 
 /* eslint max-params:0 */
 
+var DEFAULT_LIMIT = -1;
+
 var acceptNode = function acceptNode(selector) {
 
   var firstChar = selector ? selector.charAt(0) : "";
@@ -52,7 +54,7 @@ var acceptNode = function acceptNode(selector) {
 };
 
 var walkTree = function walkTree(element, selector, direction) {
-  var limit = arguments.length <= 3 || arguments[3] === undefined ? -1 : arguments[3];
+  var limit = arguments.length <= 3 || arguments[3] === undefined ? DEFAULT_LIMIT : arguments[3];
 
   var treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT, acceptNode(selector), false);
 
@@ -61,11 +63,11 @@ var walkTree = function walkTree(element, selector, direction) {
   var nodes = [];
 
   if (direction === "up") {
-    while (treeWalker.parentNode() && (nodes.length < limit || limit === -1)) {
+    while (treeWalker.parentNode() && (nodes.length < limit || limit === DEFAULT_LIMIT)) {
       nodes.push(treeWalker.currentNode);
     }
   } else {
-    while (treeWalker.childNode() && (nodes.length < limit || limit === -1)) {
+    while (treeWalker.childNode() && (nodes.length < limit || limit === DEFAULT_LIMIT)) {
       nodes.push(treeWalker.currentNode);
     }
   }
