@@ -1,6 +1,6 @@
 {
   "name": "vanillajs-dom",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A collection of simple DOM utilities for those who prefer a Vanilla JS approach.",
   "main": "dist/vanillajs-dom.js",
   "jsnext:main": "lib/index.js",
